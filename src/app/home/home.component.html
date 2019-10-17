@@ -1,0 +1,20 @@
+<h4 class="mt-4">Home Page</h4>
+  
+<p *ngIf="user">Logged in as: {{ user?.email }} - {{ user?.displayName }}</p>
+
+<button class="btn btn-primary mr-2" *ngIf="!user" (click)="register()">Register</button>
+<button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
+<button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
+
+
+<div class="sidenav">
+    <div class="login-main-text">
+       <h1>PROFUNDIZACION Y EMPRESA</h1>
+       <p>Bienvenido administrador logeate para confirmar tu identidad.</p>
+    </div>
+ </div>
+ <div class="main">
+    <button class="btn btn-primary mr-2" *ngIf="!user" (click)="register()">Register</button>
+    <button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
+    <button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
+ </div>

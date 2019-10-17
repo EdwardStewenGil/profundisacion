@@ -1,0 +1,100 @@
+
+  
+
+
+
+<mat-toolbar>
+    <mat-toolbar-row>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+      <span>home /</span><a></a>
+      <span class="example-spacer"></span>
+     
+
+
+
+      <button mat-button [matMenuTriggerFor]="menu">
+            <p *ngIf="user">{{ user?.displayName }}</p>
+      </button>
+      <mat-menu #menu="matMenu">
+            <button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
+            
+        </mat-menu>
+
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+   
+  <h1>linea de paginacion</h1>
+  <mat-divider></mat-divider>
+  
+  
+  
+    <div class="row">
+      <div class="col-sm-2 a1">
+        
+           
+   <br/>   
+   <div class="link1">
+  
+  <button mat-menu-item  class="link" (click)="mostrar1=true" (click)="mostrar2=false"  (click)="mostrar3=true" (click)="mostrar4=false" (click)="mostrar5=false"  (click)="mostrar6=false" (click)="mostrar7=true"  (click)="mostrar8=false"  (click)="mostrar9=false">lista de plantilla</button>
+  <br/>            
+         
+  <button mat-menu-item  class="link" (click)="mostrar1=false" (click)="mostrar2=false"(click)="mostrar3=false"  (click)="mostrar4=false" (click)="mostrar5=false" (click)="mostrar6=true"  (click)="mostrar7=false" (click)="mostrar8=true"  (click)="mostrar9=false">lista de chequeo</button>
+   <br/>     
+    
+        
+   <button mat-menu-item  class="link" (click)="mostrar1=false" (click)="mostrar2=true" >reportes</button>
+  
+  </div>
+  
+      
+      </div>
+      <div class="col-sm-10">
+     
+        <div class="col-sm-10 a2"> 
+          
+         <div *ngIf="mostrar1"> <app-lista></app-lista></div>
+         <div *ngIf="mostrar2"> <app-centro></app-centro></div>
+         <div *ngIf="mostrar5"> <app-hider></app-hider></div>
+         <div *ngIf="mostrar6"> <app-chequeo></app-chequeo></div>
+         <div *ngIf="mostrar9"> <app-finales></app-finales></div>
+  
+  
+  
+  
+        </div>
+       
+   
+    </div>
+  </div>
+  <div *ngIf="mostrar3" >
+  <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
+    </mat-icon></button>
+  <mat-menu  #menu="matMenu">
+    <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=true"  (click)="mostrar3=false"   (click)="mostrar4=true">nueva plantilla</button>
+    <button mat-menu-item>editar plantilla</button>
+    <button mat-menu-item>eliminar plantilla</button>
+  
+  </mat-menu>
+  </div>
+  <div *ngIf="mostrar4" >
+      <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
+        </mat-icon></button>
+      <mat-menu  #menu="matMenu">
+        <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=false"  (click)="mostrar3=false" (click)="mostrar4=false" (click)="mostrar5=true" >nueva criterio de valoracion</button>
+        <button mat-menu-item>editar criterio</button>
+        <button mat-menu-item>eliminar criterio</button>
+      
+      </mat-menu>
+      </div>
+      <div *ngIf="mostrar8" >
+          <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
+            </mat-icon></button>
+          <mat-menu  #menu="matMenu">
+            <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=false"  (click)="mostrar3=false" (click)="mostrar4=false" (click)="mostrar5=false" (click)="mostrar6=false" (click)="mostrar7=false" (click)="mostrar8=false" (click)="mostrar9=true">nueva lista</button>
+            <button mat-menu-item>editar lista</button>
+            <button mat-menu-item>versionar lista</button>
+            <button mat-menu-item>eliminar criterio</button>
+          
+          </mat-menu>
+          </div>
