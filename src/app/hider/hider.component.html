@@ -1,77 +1,81 @@
-<mat-tab-group>
-     
-    <mat-tab label="Atributos de Plantilla" >
 
-        <div class="example-large-box mat-elevation-z4"> 
-            <br>
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <input  matInput [(ngModel)]="plantillaRaice"  placeholder="Raiz de Consecutivo" value=" ">
-                </mat-form-field>
-                  <br>
-  
-                <mat-form-field class="example-full-width">
-                    <input matInput  [(ngModel)]="plantillaName"  placeholder="Nombre Plantilla" value=" ">
-                  </mat-form-field>
-  
-                  <br>
-  
-                  <mat-form-field class="example-full-width">
-                      <input matInput [(ngModel)]="plantillaDescription"  placeholder="Descripcion de Plantilla" value=" ">
-                    </mat-form-field>
-  
-                    <br>
-  
-                    <mat-form-field class="example-full-width">
-                        <input matInput [(ngModel)]="plantillaUmbral"  placeholder="Umbral de valoración minimo requerido (%)" value=" ">
-                      </mat-form-field>
-  
-              </form>
-  
-              <mat-divider class="margen" style="height: 5px;" ></mat-divider>
-  
-              <button type="button" class="btn btn-danger">Cancelar</button>
+
+  <div class="container">
+    <h1 style="margin-top: 25px;">
+    
+    </h1>
+    <div class="row" style="margin-top: 25px;">
+      <div class="col-md-2">
+        <input type="text" class="form-control" [(ngModel)]="plantillaRaice" placeholder="Raiz de Consecutivo">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control" [(ngModel)]="plantillaName" placeholder="Nombre Plantilla">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control" [(ngModel)]="plantillaDescription" placeholder="Descripcion de Plantilla">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)">
+      </div>
+      <div class="col-md-2">
+     
+
+        <button type="button" class="btn btn-danger">Cancelar</button>
               <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!plantillaRaice || !plantillaName || !plantillaDescription || !plantillaUmbral" >Siguiente</button>
 
-      </div>
-
-    </mat-tab>
-    <mat-tab label="Criterios de Valoracion">
-        <div class="example-large-box mat-elevation-z4"> 
-            <br>
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="criterio de valoracion" value=" ">
-                </mat-form-field>
-                  <br>
-  
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="tipo de criterio" value=" ">
-                  </mat-form-field>
-  
-                  <br>
-  
-                  <mat-form-field class="example-full-width">
-                      <input matInput placeholder="ponderacion" value=" ">
-                    </mat-form-field>
-  
-                    <br>
-  
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="descripcion de criterio" value=" ">
-                      </mat-form-field>
-  
-              </form>
-  
-              <mat-divider class="margen" style="height: 5px;" ></mat-divider>
-  
-              <button type="button" class="btn btn-danger">Cancelar criterio</button>
-              <button type="button" class="btn btn-warning">Guardar criterio </button>
 
 
       </div>
-      <br/> 
-      <button type="button" class="btn btn-danger">Atras</button>
-      <button type="button" class="btn btn-warning">Guardar Plantilla</button>
-    </mat-tab>
-  </mat-tab-group>
+  </div>
+  
+ 
+  </div> 
+
+
+
+
+  <div class="row margen6" style="margin-top: 25px;">
+    <div class="margen6 col-md-3">
+      <div class="card margen6" style="width: 18rem;" *ngFor="let item of plantillas">
+        <div class=" card-body" *ngIf="!item.isEdit; else elseBlock">
+            <h5 class="card-title"> raiz {{item.Raiz}} </h5>
+            <h6 class="card-subtitle mb-2 text-muted"> name: {{item.Name}}  </h6>
+            <p class="card-text"> descripcion: {{item.Description}} </p>
+            <p class="card-text"> umbral: {{item.Umbral}} </p>
+
+            
+            <a  class="card-link" (click)= "EditRecord(item)"> Edit </a>
+            <a  class="card-link" (click)= "RemoveRecord(item.id)"> Delete </a>
+        </div>
+
+        <ng-template #elseBlock>
+          <div class="card-body">
+            <h5 class="card-title">Edit</h5>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" [(ngModel)]= "item.EditRaiz" placeholder="Edit raiz">
+                </div>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]= "item.EditName" placeholder="Edit name">
+                </div>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]= "item.EditDescription" placeholder="Edit description">
+                </div>
+                <div class="col-md-12">
+                  <input type="text" class="form-control" [(ngModel)]= "item.EditUmbral" placeholder="Edit umbral">
+              </div>
+              </div>
+            </div>
+            <a href="#" class="card-link" (click)="item.isEdit= false">Cancel</a>
+            <a href="#" class="card-link" (click)="UpdateRecord(item)">Update</a>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+
+
+
+

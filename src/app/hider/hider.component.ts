@@ -1,3 +1,6 @@
+
+
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
@@ -22,10 +25,10 @@ export class HiderComponent implements OnInit {
         return{
           id: e.payload.doc.id,
           isEdit: false,
-          PlantillaRaice: e.payload.doc.data()['Raiz'],
-          PlantillaName: e.payload.doc.data()['Name'],
-          PlantillaDescription: e.payload.doc.data()['Description'],
-          PlantillaUmbral: e.payload.doc.data()['Umbral'],
+          Raiz: e.payload.doc.data()['Raiz'],
+          Name: e.payload.doc.data()['Name'],
+          Description: e.payload.doc.data()['Description'],
+          Umbral: e.payload.doc.data()['Umbral'],
         };
       })
       console.log(this.plantillas);
@@ -57,9 +60,22 @@ RemoveRecord(rowID) {
 
 EditRecord(record) {
   record.isEdit=true;
+  record.EditRaiz=record.Raiz;
   record.EditName=record.Name;
-  record.EditAge=record.Age;
-  record.EditAddress =record.Address;
+  record.EditDescription =record.Description;
+  record.EditUmbral =record.Umbral;
+}
+
+UpdateRecord(recordRow){
+let record = {};
+record['Raiz'] = recordRow.plantillaRaice;
+  record['Name'] = recordRow.plantillaName;
+  record['Description'] = recordRow.plantillaDescription;
+  record['Umbral'] = recordRow.plantillaUmbral;
+  this.auth.update_Plantilla(recordRow.id, record);
+  recordRow.isEdit = false;
+
+
 }
 
 
