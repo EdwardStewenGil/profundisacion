@@ -2,17 +2,16 @@
   
 
 
-
 <mat-toolbar>
     <mat-toolbar-row>
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-      <span>home /</span><a></a>
+      <span>Home /</span><a></a>
       <span class="example-spacer"></span>
      
 
 
-
-      <button mat-button [matMenuTriggerFor]="menu">
+          
+      <button mat-button class="btn btn-primary" [matMenuTriggerFor]="menu">
             <p *ngIf="user">{{ user?.displayName }}</p>
       </button>
       <mat-menu #menu="matMenu">
@@ -24,7 +23,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
    
-  <h1>linea de paginacion</h1>
+  <h1>Linea de Paginación</h1>
   <mat-divider></mat-divider>
   
   
@@ -36,14 +35,14 @@
    <br/>   
    <div class="link1">
   
-  <button mat-menu-item  class="link" (click)="mostrar1=true" (click)="mostrar2=false"  (click)="mostrar3=true" (click)="mostrar4=false" (click)="mostrar5=false"  (click)="mostrar6=false" (click)="mostrar7=true"  (click)="mostrar8=false"  (click)="mostrar9=false">lista de plantilla</button>
+  <button mat-menu-item  class="link" (click)="mostrar1=true" (click)="mostrar2=false"  (click)="mostrar3=true" (click)="mostrar4=false" (click)="mostrar5=false"  (click)="mostrar6=false" (click)="mostrar7=true"  (click)="mostrar8=false"  (click)="mostrar9=false">Plantillas</button>
   <br/>            
          
-  <button mat-menu-item  class="link" (click)="mostrar1=false" (click)="mostrar2=false"(click)="mostrar3=false"  (click)="mostrar4=false" (click)="mostrar5=false" (click)="mostrar6=true"  (click)="mostrar7=false" (click)="mostrar8=true"  (click)="mostrar9=false">lista de chequeo</button>
+  <button mat-menu-item  class="link" (click)="mostrar1=false" (click)="mostrar2=false"(click)="mostrar3=false"  (click)="mostrar4=false" (click)="mostrar5=false" (click)="mostrar6=true"  (click)="mostrar7=false" (click)="mostrar8=true"  (click)="mostrar9=false">Lista de Chequeo</button>
    <br/>     
     
         
-   <button mat-menu-item  class="link" (click)="mostrar1=false" (click)="mostrar2=true" >reportes</button>
+   <button mat-menu-item  class="link" (click)="mostrar1=false" (click)="mostrar2=true" >Reportes</button>
   
   </div>
   
@@ -71,9 +70,9 @@
   <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
     </mat-icon></button>
   <mat-menu  #menu="matMenu">
-    <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=true"  (click)="mostrar3=false"   (click)="mostrar4=true">nueva plantilla</button>
-    <button mat-menu-item>editar plantilla</button>
-    <button mat-menu-item>eliminar plantilla</button>
+    <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=true"  (click)="mostrar3=false"   (click)="mostrar4=true">Nueva Plantilla</button>
+    <button mat-menu-item>Editar Plantilla</button>
+    <button mat-menu-item>Eliminar Plantilla</button>
   
   </mat-menu>
   </div>
@@ -81,9 +80,9 @@
       <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
         </mat-icon></button>
       <mat-menu  #menu="matMenu">
-        <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=false"  (click)="mostrar3=false" (click)="mostrar4=false" (click)="mostrar5=true" >nueva criterio de valoracion</button>
-        <button mat-menu-item>editar criterio</button>
-        <button mat-menu-item>eliminar criterio</button>
+        <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=false"  (click)="mostrar3=false" (click)="mostrar4=false" (click)="mostrar5=true" >Nueva Criterio de Valoracion</button>
+        <button mat-menu-item>Editar Criterio</button>
+        <button mat-menu-item>Eliminar Criterio</button>
       
       </mat-menu>
       </div>
@@ -91,10 +90,10 @@
           <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
             </mat-icon></button>
           <mat-menu  #menu="matMenu">
-            <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=false"  (click)="mostrar3=false" (click)="mostrar4=false" (click)="mostrar5=false" (click)="mostrar6=false" (click)="mostrar7=false" (click)="mostrar8=false" (click)="mostrar9=true">nueva lista</button>
-            <button mat-menu-item>editar lista</button>
-            <button mat-menu-item>versionar lista</button>
-            <button mat-menu-item>eliminar criterio</button>
+            <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=false"  (click)="mostrar3=false" (click)="mostrar4=false" (click)="mostrar5=false" (click)="mostrar6=false" (click)="mostrar7=false" (click)="mostrar8=false" (click)="mostrar9=true">Nueva Lista</button>
+            <button mat-menu-item>Editar Lista</button>
+            <button mat-menu-item>Versionar Lista</button>
+            <button mat-menu-item>Eliminar Criterio</button>
           
           </mat-menu>
           </div>

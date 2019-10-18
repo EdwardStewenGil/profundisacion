@@ -6,24 +6,24 @@
             <br>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Raiz de Consecutivo" value=" ">
+                  <input  matInput [(ngModel)]="plantillaRaice"  placeholder="Raiz de Consecutivo" value=" ">
                 </mat-form-field>
                   <br>
   
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Nombre Plantilla" value=" ">
+                    <input matInput  [(ngModel)]="plantillaName"  placeholder="Nombre Plantilla" value=" ">
                   </mat-form-field>
   
                   <br>
   
                   <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Descripcion de Plantilla" value=" ">
+                      <input matInput [(ngModel)]="plantillaDescription"  placeholder="Descripcion de Plantilla" value=" ">
                     </mat-form-field>
   
                     <br>
   
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Umbral de valoración minimo requerido (%)" value=" ">
+                        <input matInput [(ngModel)]="plantillaUmbral"  placeholder="Umbral de valoración minimo requerido (%)" value=" ">
                       </mat-form-field>
   
               </form>
@@ -31,7 +31,7 @@
               <mat-divider class="margen" style="height: 5px;" ></mat-divider>
   
               <button type="button" class="btn btn-danger">Cancelar</button>
-              <button type="button" class="btn btn-warning">Siguiente</button>
+              <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!plantillaRaice || !plantillaName || !plantillaDescription || !plantillaUmbral" >Siguiente</button>
 
       </div>
 
@@ -66,12 +66,12 @@
               <mat-divider class="margen" style="height: 5px;" ></mat-divider>
   
               <button type="button" class="btn btn-danger">Cancelar criterio</button>
-              <button type="button" class="btn btn-warning">guardar criterio </button>
+              <button type="button" class="btn btn-warning">Guardar criterio </button>
 
 
       </div>
       <br/> 
-      <button type="button" class="btn btn-danger">atras</button>
-      <button type="button" class="btn btn-warning">guardar plantilla</button>
+      <button type="button" class="btn btn-danger">Atras</button>
+      <button type="button" class="btn btn-warning">Guardar Plantilla</button>
     </mat-tab>
   </mat-tab-group>

@@ -14,6 +14,7 @@ export class AuthService {
   eventAuthError$ = this.eventAuthError.asObservable();
 
   newUser: any;
+  url="";
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -68,4 +69,21 @@ export class AuthService {
   logout() {
     return this.afAuth.auth.signOut();
   }
+
+  create_NewPlantilla (record){
+    return this.db.collection('Plantillas').add(record);
+  }
+  read_Plantilla(){
+    return this.db.collection('Plantillas').snapshotChanges();
+  }
+  update_Plantilla(recordID, record){
+    this.db.doc('Plantillas/' + recordID).update(record);
+  }
+  delete_Plantilla(record_id){
+    this.db.doc('Plantillas/' + record_id).delete();
+  }
+
+
+
+
 }
