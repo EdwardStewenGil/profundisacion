@@ -29,7 +29,6 @@ import { FinalesComponent } from './finales/finales.component';
 import { InicioComponent } from './inicio/inicio.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

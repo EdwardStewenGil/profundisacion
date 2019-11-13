@@ -1,7 +1,5 @@
 
   
-
-
 <mat-toolbar>
     <mat-toolbar-row>
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
@@ -10,25 +8,22 @@
      
 
 
-          
-      <button mat-button class="btn btn-primary" [matMenuTriggerFor]="menu">
-            <p *ngIf="user">{{ user?.displayName }}</p>
-      </button>
+      <button class="btn btn-secondary" mat-button [matMenuTriggerFor]="menu">{{ user?.displayName }}</button>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">face</mat-icon>
       <mat-menu #menu="matMenu">
-            <button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
-            
-        </mat-menu>
+        <button mat-menu-item>Salir</button>
+      </mat-menu>
 
 
     </mat-toolbar-row>
   </mat-toolbar>
    
-  <h1>Linea de Paginación</h1>
+  <h3>Linea de Paginación</h3>
   <mat-divider></mat-divider>
   
   
   
-    <div class="row">
+    <div class="row col-sm-12">
       <div class="col-sm-2 a1">
         
            
@@ -67,10 +62,11 @@
     </div>
   </div>
   <div *ngIf="mostrar3" >
-  <button mat-button [matMenuTriggerFor]="menu" class="menu">   <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
+  <button mat-button [matMenuTriggerFor]="menu" class="menu">   
+    <mat-icon class="icono3" aria-hidden="false" aria-label="Example delete icon">calendar_view_day
     </mat-icon></button>
   <mat-menu  #menu="matMenu">
-    <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=true"  (click)="mostrar3=false"   (click)="mostrar4=true">Nueva Plantilla</button>
+    <button mat-menu-item  (click)="mostrar1=false" (click)="mostrar2=true"  (click)="mostrar3=false" (click)="mostrar4=true">Nueva Plantilla</button>
     <button mat-menu-item>Editar Plantilla</button>
     <button mat-menu-item>Eliminar Plantilla</button>
   

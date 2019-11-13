@@ -71,7 +71,7 @@ export class AuthService {
   }
 
   create_NewPlantilla (record){
-    return this.db.collection('Plantillas').add(record);
+    return this.db.collection('Plantillas').doc('Criterios').collection('Atributos').add(record);
   }
   read_Plantilla(){
     return this.db.collection('Plantillas').snapshotChanges();
