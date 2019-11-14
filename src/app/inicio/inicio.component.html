@@ -3,7 +3,7 @@
 <mat-toolbar>
     <mat-toolbar-row>
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-      <span>Home /</span><a></a>
+      <span>Home / {{ user?.photoURL }} </span><a></a>
       <span class="example-spacer"></span>
      
 
@@ -11,7 +11,7 @@
       <button class="btn btn-secondary" mat-button [matMenuTriggerFor]="menu">{{ user?.displayName }}</button>
       <mat-icon aria-hidden="false" aria-label="Example home icon">face</mat-icon>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Salir</button>
+        <button mat-menu-item (click)="logout()">Salir</button>
       </mat-menu>
 
 

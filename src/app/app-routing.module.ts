@@ -5,6 +5,11 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { HomeComponent } from './home/home.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HiderComponent } from './hider/hider.component';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { EvaluadorComponent } from './evaluador/evaluador.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { TrabajadorComponent } from './trabajador/trabajador.component';
+
 
 const routes: Routes = [
   {
@@ -19,6 +24,23 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
+  
+
+
+
+  {
+    path: 'administrador',
+    component: AdministradorComponent  
+  },
+  {
+    path: 'evaluador',
+    component: EvaluadorComponent
+  },
+  {
+    path: 'trabajador',
+    component: TrabajadorComponent
+  },
+
   {
     path: 'inicio',
     component: InicioComponent 

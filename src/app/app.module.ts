@@ -27,6 +27,12 @@ import {MatInputModule} from '@angular/material/input';
 import { ChequeoComponent } from './chequeo/chequeo.component';
 import { FinalesComponent } from './finales/finales.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { EvaluadorComponent } from './evaluador/evaluador.component';
+import { TrabajadorComponent } from './trabajador/trabajador.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { PlantillasComponent } from './plantillas/plantillas.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 
 @NgModule({
@@ -41,7 +47,13 @@ import { InicioComponent } from './inicio/inicio.component';
     CentroComponent,
     ChequeoComponent,
     FinalesComponent,
-    InicioComponent
+    InicioComponent,
+    AdministradorComponent,
+    EvaluadorComponent,
+    TrabajadorComponent,
+    UsuarioComponent,
+    PlantillasComponent,
+    ReportesComponent
 
   ],
   imports: [

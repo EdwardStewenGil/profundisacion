@@ -32,7 +32,19 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
-          this.router.navigate(['/inicio']);
+          console.log(userCredential.user.updateProfile);
+          console.log(userCredential.user.photoURL);
+          console.log(password);
+          console.log(email); 
+          console.log(email);
+          if (userCredential.user.photoURL == "Administrador")
+          this.router.navigate(['/administrador']);
+       else if (userCredential.user.photoURL == "Evaluador")
+       this.router.navigate(['/evaluador']);
+       else if (userCredential.user.photoURL == "Trabajador")
+       this.router.navigate(['/trabajador']);
+        
+
         }
       })
   }
@@ -44,7 +56,11 @@ export class AuthService {
         this.newUser = user;
         console.log(userCredential);
         userCredential.user.updateProfile( {
-          displayName: user.firstName + ' ' + user.lastName
+       
+          displayName: user.firstName + ' ' + user.lastName,
+          photoURL: user.role
+        
+
         });
 
         this.insertUserData(userCredential)
@@ -62,7 +78,7 @@ export class AuthService {
       email: this.newUser.email,
       firstname: this.newUser.firstName,
       lastname: this.newUser.lastName,
-      role: 'network user'
+      role: this.newUser.role,
     })
   }
 
