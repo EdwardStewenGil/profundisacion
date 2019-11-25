@@ -7,7 +7,9 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./plantillas.component.scss']
 })
 export class PlantillasComponent implements OnInit {
-
+   mostrar1=false;
+   mostrar2=true;
+   mostrar3=false;
   plantillas: any;
   plantillaRaice: String;
   plantillaName: String;

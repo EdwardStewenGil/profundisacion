@@ -15,7 +15,7 @@ export class AuthService {
 
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
-
+  id1="IfQLkisuXED3t8KYVb7";
   newUser: any;
   url="";
 
@@ -102,7 +102,13 @@ export class AuthService {
     this.db.doc('Plantillas/' + record_id).delete();
   }
 
+ 
+  read_Criterios_ID(id){
+    return this.db.collection('Criterios/' + id).snapshotChanges();
+  }
 
+
+  
   create_NewCriterios(record){
     return this.db.collection('Criterios').add(record);
   }

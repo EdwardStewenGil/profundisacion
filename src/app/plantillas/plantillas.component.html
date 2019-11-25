@@ -1,63 +1,49 @@
+<button type="button" class="btn btn-primary" (click)="mostrar1=true"   (click)="mostrar2=false"   (click)="mostrar3=false">  Crear nueva plantilla  </button>
+       
+   <div  *ngIf="mostrar1">   
 
+      <div >
+          <h1 style="margin-top: 25px;">
+          </h1>
+          <div class="">
+            <div class="col-md-12">
+              <input type="text" class="form-control" [(ngModel)]="plantillaRaice" placeholder="Raiz de Consecutivo"> 
+            </div>                <br/>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" >
-      Crear nueva plantilla  </button>
-
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-            
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Crear nueva plantilla</h4>
-                <button type="button" class="close" data-dismiss="modal1">&times;</button>
-              </div>
-              
-              <!-- Modal body -->
-              <div >
-                <h1 style="margin-top: 25px;">
-                </h1>
-                <div class="">
-                  <div class="col-md-12">
-                    <input type="text" class="form-control" [(ngModel)]="plantillaRaice" placeholder="Raiz de Consecutivo"> 
-                  </div>                <br/>
-
-                  <div class="col-md-12">
-                    <input type="text" class="form-control" [(ngModel)]="plantillaName" placeholder="Nombre Plantilla"> 
-                  </div> <br/>
-                  <div class="col-md-12">
-                    <input type="text" class="form-control" [(ngModel)]="plantillaDescription" placeholder="Descripcion de Plantilla"> 
-                  </div> <br/>
-                  <div class="col-md-12">
-                    <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)"> 
-                  </div> <br/>
-                  <div class="col-md-6">
-                 
-            
-                    <button type="button" class="btn btn-danger">Cancelar</button>
-                          <button type="button" class="btn btn-warning" (click)="CreateRecord()"  >Siguiente</button>
-            
-            
-            
-                  </div>
-              </div>
-              
-             
-              </div> 
-              
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-              
+            <div class="col-md-12">
+              <input type="text" class="form-control" [(ngModel)]="plantillaName" placeholder="Nombre Plantilla"> 
+            </div> <br/>
+            <div class="col-md-12">
+              <input type="text" class="form-control" [(ngModel)]="plantillaDescription" placeholder="Descripcion de Plantilla"> 
+            </div> <br/>
+            <div class="col-md-12">
+              <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)"> 
+            </div> <br/>
+            <div class="col-md-6">
+           
+      
+              <button type="button" class="btn btn-danger" (click)="mostrar1=false"   (click)="mostrar2=true" (click)="mostrar3=false">Cancelar</button>
+                    <button type="button" class="btn btn-warning" (click)="CreateRecord()"  (click)="mostrar1=false" (click)="mostrar2=false" (click)="mostrar3=true" >Siguiente</button>
+      
+      
+      
             </div>
-          </div>
         </div>
+        
+       
+        </div> 
 
-      block de notas 3
+
+   </div>  
+
+          
+   <div  *ngIf="mostrar3"> 
+     <app-criterios></app-criterios>
+   </div>
 
 
+     
+     <div  *ngIf="mostrar2">
         
         
       <table class="table table-striped a8 table-hover  table-condensed" >
@@ -154,3 +140,4 @@
                   </div>
                 </div>
               </div>
+            </div>

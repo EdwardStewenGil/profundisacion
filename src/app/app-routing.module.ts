@@ -18,6 +18,10 @@ const routes: Routes = [
     component: LoginComponent  
   },
   {
+    path: 'criterio',
+    component: CriteriosComponent  
+  },
+  {
     path: 'register',
     component: RegistrationComponent
   },
