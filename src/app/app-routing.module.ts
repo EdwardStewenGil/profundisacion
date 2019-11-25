@@ -9,6 +9,7 @@ import { AdministradorComponent } from './administrador/administrador.component'
 import { EvaluadorComponent } from './evaluador/evaluador.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { TrabajadorComponent } from './trabajador/trabajador.component';
+import { CriteriosComponent } from './criterios/criterios.component';
 
 
 const routes: Routes = [
@@ -24,10 +25,11 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  
+  {
+    path: 'criterios',
+    component: CriteriosComponent 
 
-
-
+  },
   {
     path: 'administrador',
     component: AdministradorComponent  

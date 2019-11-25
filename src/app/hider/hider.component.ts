@@ -9,6 +9,7 @@ import { AuthService } from '../auth/auth.service';
 export class HiderComponent implements OnInit {
 
   plantillas: any;
+  
   plantillaRaice: String;
   plantillaName: String;
   plantillaDescription: String;

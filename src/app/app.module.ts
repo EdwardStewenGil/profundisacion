@@ -33,6 +33,7 @@ import { TrabajadorComponent } from './trabajador/trabajador.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { PlantillasComponent } from './plantillas/plantillas.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { CriteriosComponent } from './criterios/criterios.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ReportesComponent } from './reportes/reportes.component';
     TrabajadorComponent,
     UsuarioComponent,
     PlantillasComponent,
-    ReportesComponent
+    ReportesComponent,
+    CriteriosComponent
 
   ],
   imports: [

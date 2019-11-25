@@ -4,6 +4,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { BehaviorSubject } from 'rxjs';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Injectable({
   providedIn: 'root'
@@ -98,6 +101,21 @@ export class AuthService {
   delete_Plantilla(record_id){
     this.db.doc('Plantillas/' + record_id).delete();
   }
+
+
+  create_NewCriterios(record){
+    return this.db.collection('Criterios').add(record);
+  }
+  read_Criterios(){
+    return this.db.collection('Criterios').snapshotChanges();
+  }
+  update_Criterios(recordID, record){
+    this.db.doc('Criterios/' + recordID).update(record);
+  }
+  delete_Criterios(record_id){
+    this.db.doc('Criterios/' + record_id).delete();
+  }
+
 
 
 
