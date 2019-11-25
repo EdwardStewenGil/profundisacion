@@ -8,13 +8,17 @@ import { AuthService } from '../auth/auth.service';
 })
 export class PlantillasComponent implements OnInit {
 
-mostrar2=false;
-mostrar1=true;
   plantillas: any;
   plantillaRaice: String;
   plantillaName: String;
   plantillaDescription: String;
   plantillaUmbral: number;
+  plantillaid1: String;
+  plantillas1: any;
+  plantillaRaice1: String;
+  plantillaName1: String;
+  plantillaDescription1: String;
+  plantillaUmbral1: number;
 
   constructor(private auth: AuthService) { }
 
@@ -53,30 +57,32 @@ CreateRecord(){
   });
 }
 
-RemoveRecord(rowID) {
-  this.auth.delete_Plantilla(rowID);
+RemoveRecord() {
+  this.auth.delete_Plantilla( this.plantillaid1);
 }
 
 EditRecord(record) {
-  record.isEdit=true;
-  console.log("prueba")
   console.log(record)
-  document.getElementById("raiz").nodeValue = record.EditRaiz;
-  record.EditRaiz=record.Raiz;
-  record.EditName=record.Name;
-  record.EditDescription =record.Description;
-  record.EditUmbral =record.Umbral;
-  console.log(record.EditName)
+  this.plantillaid1=record.id;
+  this.plantillaRaice1=record.Description;
+  this.plantillaName1=record.Name;
+  this.plantillaDescription1 =record.Raiz;
+  this.plantillaUmbral1 =record.Umbral;
+
+  console.log(this.plantillaRaice1)
+
 }
 
-UpdateRecord(recordRow){
+
+
+UpdateRecord( ){
 let record = {};
-record['Raiz'] = recordRow.plantillaRaice;
-  record['Name'] = recordRow.plantillaName;
-  record['Description'] = recordRow.plantillaDescription;
-  record['Umbral'] = recordRow.plantillaUmbral;
-  this.auth.update_Plantilla(recordRow.id, record);
-  recordRow.isEdit = false;
+record['Raiz'] = this.plantillaRaice1;
+  record['Name'] = this.plantillaName1;
+  record['Description'] = this.plantillaDescription1;
+  record['Umbral'] = this.plantillaUmbral1;
+  console.log(record)
+  this.auth.update_Plantilla(this.plantillaid1,record);
 
 
 }

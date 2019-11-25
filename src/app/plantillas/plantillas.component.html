@@ -1,266 +1,156 @@
 
-   
-   <div *ngIf="mostrar1 ">
-  <table class="table table-striped a8 table-hover  table-condensed" >
-    <thead>
-      <tr>
-        <th>Raiz</th>
-        <th>nombre</th>
-        <th>descripcion</th>
-        <th>umbral</th>
-        <th>opciones</th>
-        
-      
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of plantillas">
-        <td>   {{item.Raiz}}</td>
-        <td> {{item.Name}} </td>
-        <td>   {{item.Description}}</td>
-        <td> {{item.Umbral}} </td>         
-        <td>  <button type="button" class="btn btn-primary" (click)="mostar1=false" (click)="mostar2=true" >
-               editar
-              </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" >
+      Crear nueva plantilla  </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
             
-        
-        
-        </td>       
-      </tr>
-    </tbody>
-</table>
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Crear nueva plantilla</h4>
+                <button type="button" class="close" data-dismiss="modal1">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div >
+                <h1 style="margin-top: 25px;">
+                </h1>
+                <div class="">
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]="plantillaRaice" placeholder="Raiz de Consecutivo"> 
+                  </div>                <br/>
 
-</div>
-
-
-        <div class="row" style="margin-top: 25px;" *ngIf="mostrar2 ">
-                <div class="col-md-12">
-                      Raiz de Consecutivo :   <input id="raiz" type="text" class="form-control"   [(ngModel)]= "item.EditRaiz" placeholder="Edit raiz">
-                     
-                </div>   <br/><br/><br/><br/>
-                <div class="col-md-12">
-                      Nombre Plantilla :  <input type="text" class="form-control" [(ngModel)]= "item.EditName" placeholder="Edit name">
-                </div> <br/><br/><br/><br/>
-                <div class="col-md-12">
-                      Descripcion de Plantilla :<input type="text" class="form-control" [(ngModel)]= "item.EditDescription" placeholder="Edit description">
-                </div>  <br/><br/><br/><br/>
-                <div class="col-md-12">
-                      Umbral de valoración minimo requerido (%) : <input type="text" class="form-control" [(ngModel)]= "item.EditUmbral" placeholder="Edit umbral">
-                </div> <br/><br/><br/><br/>
-                <div class="col-md-12">
-               
-         
-             <button type="button" class="btn btn-warning col-sm-6"  >Editar</button>
-
-            <button type="button" class="btn btn-danger col-sm-6">Eliminar</button> 
-    
-    
-    
-          </div>
-      </div>
-
-
-
- 
-
-
-block de notas 1
-
-<div class="row" style="margin-top: 25px;">
-        <div class="col-md-12">
-              Raiz de Consecutivo :   <input id="raiz" type="text" class="form-control"   [(ngModel)]= "item.EditRaiz" placeholder="Edit raiz">
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]="plantillaName" placeholder="Nombre Plantilla"> 
+                  </div> <br/>
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]="plantillaDescription" placeholder="Descripcion de Plantilla"> 
+                  </div> <br/>
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)"> 
+                  </div> <br/>
+                  <div class="col-md-6">
+                 
+            
+                    <button type="button" class="btn btn-danger">Cancelar</button>
+                          <button type="button" class="btn btn-warning" (click)="CreateRecord()"  >Siguiente</button>
+            
+            
+            
+                  </div>
+              </div>
+              
              
-        </div>   <br/><br/><br/><br/>
-        <div class="col-md-12">
-              Nombre Plantilla :  <input type="text" class="form-control" [(ngModel)]= "item.EditName" placeholder="Edit name">
-        </div> <br/><br/><br/><br/>
-        <div class="col-md-12">
-              Descripcion de Plantilla :<input type="text" class="form-control" [(ngModel)]= "item.EditDescription" placeholder="Edit description">
-        </div>  <br/><br/><br/><br/>
-        <div class="col-md-12">
-              Umbral de valoración minimo requerido (%) : <input type="text" class="form-control" [(ngModel)]= "item.EditUmbral" placeholder="Edit umbral">
-        </div> <br/><br/><br/><br/>
-        <div class="col-md-12">
-       
- 
-     <button type="button" class="btn btn-warning col-sm-6"  >Editar</button>
-
-    <button type="button" class="btn btn-danger col-sm-6">Eliminar</button> 
-
-
-
-  </div>
-</div>
-
-block de notas 2  
-
-<div class="container">
-        <h1 style="margin-top: 25px;">
-        
-        </h1>
-        <div class="row" style="margin-top: 25px;">
-          <div class="col-md-2">
-            <input type="text" class="form-control" [(ngModel)]="plantillaRaice" placeholder="Raiz de Consecutivo">
+              </div> 
+              
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+              
+            </div>
           </div>
-          <div class="col-md-2">
-            <input type="text" class="form-control" [(ngModel)]="plantillaName" placeholder="Nombre Plantilla">
-          </div>
-          <div class="col-md-2">
-            <input type="text" class="form-control" [(ngModel)]="plantillaDescription" placeholder="Descripcion de Plantilla">
-          </div>
-          <div class="col-md-2">
-            <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)">
-          </div>
-          <div class="col-md-2">
-         
-    
-            <button type="button" class="btn btn-danger">Cancelar</button>
-                  <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!plantillaRaice || !plantillaName || !plantillaDescription || !plantillaUmbral" >Siguiente</button>
-    
-    
-    
-          </div>
-      </div>
-      
-     
-      </div> 
-
-
+        </div>
 
       block de notas 3
 
-      <div class="container">
-            <h1 style="margin-top: 25px;">
-            
-            </h1>
-            <div class="row" style="margin-top: 25px;">
-              <div class="col-md-2">
-                <input type="text" class="form-control" [(ngModel)]="plantillaRaice" placeholder="Raiz de Consecutivo">
-              </div>
-              <div class="col-md-2">
-                <input type="text" class="form-control" [(ngModel)]="plantillaName" placeholder="Nombre Plantilla">
-              </div>
-              <div class="col-md-2">
-                <input type="text" class="form-control" [(ngModel)]="plantillaDescription" placeholder="Descripcion de Plantilla">
-              </div>
-              <div class="col-md-2">
-                <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)">
-              </div>
-              <div class="col-md-2">
-             
-        
-                <button type="button" class="btn btn-danger">Cancelar</button>
-                      <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!plantillaRaice || !plantillaName || !plantillaDescription || !plantillaUmbral" >Siguiente</button>
-        
-        
-        
-              </div>
-          </div>
-          
-         
-          </div> 
-        
-        
-        
-          <table class="table table-striped a8 table-hover  table-condensed" >
-            <thead>
-              <tr>
-                <th>Raiz</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>umbral</th>
-                <th>opciones</th>
-                
-              
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of plantillas">
-                <td>   {{item.Raiz}}</td>
-                <td> {{item.Name}} </td>
-                <td>   {{item.Description}}</td>
-                <td> {{item.Umbral}} </td>         
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)= "EditRecord(item)">
-                        editar  </button>
-                    
-                
-                
-                </td>       
-              </tr>
-            </tbody>
-        </table>
-        
-        <!-- The Modal -->
-                  <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                      
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                          <h4 class="modal-title">editando</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                       
-                                <div class="row margen6" style="margin-top: 25px;">
-                                        <div class="margen6 col-md-3">
-                                          <div class="card margen6" style="width: 18rem;" *ngFor="let item of plantillas">
-                                            <div class=" card-body" *ngIf="!item.isEdit; else elseBlock">
-                                                <h5 class="card-title"> raiz {{item.Raiz}} </h5>
-                                                <h6 class="card-subtitle mb-2 text-muted"> name: {{item.Name}}  </h6>
-                                                <p class="card-text"> descripcion: {{item.Description}} </p>
-                                                <p class="card-text"> umbral: {{item.Umbral}} </p>
-                                    
-                                                
-                                                <a  class="card-link" (click)= "EditRecord(item)"> Edit </a>
-                                                <a  class="card-link" (click)= "RemoveRecord(item.id)"> Delete </a>
-                                            </div>
-                                    
-                                            <ng-template #elseBlock>
-                                              <div class="card-body">
-                                                <h5 class="card-title">Edit</h5>
-                                                <div class="form-group">
-                                                  <div class="row">
-                                                    <div class="col-md-12">
-                                                      <input type="text" class="form-control" [(ngModel)]= "item.EditRaiz" placeholder="Edit raiz">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control" [(ngModel)]= "item.EditName" placeholder="Edit name">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control" [(ngModel)]= "item.EditDescription" placeholder="Edit description">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                      <input type="text" class="form-control" [(ngModel)]= "item.EditUmbral" placeholder="Edit umbral">
-                                                  </div>
-                                                  </div>
-                                                </div>
-                                                <a href="#" class="card-link" (click)="item.isEdit= false">Cancel</a>
-                                                <a href="#" class="card-link" (click)="UpdateRecord(item)">Update</a>
-                                              </div>
-                                            </ng-template>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    
-        
-        
-        
-        
-                        </div>
-                        
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </div>
-        
-        
-        
 
+        
+        
+      <table class="table table-striped a8 table-hover  table-condensed" >
+        <thead>
+          <tr>
+            <th>Raiz</th>
+            <th>nombre</th>
+            <th>descripcion</th>
+            <th>umbral</th>
+            <th>opciones</th>
+            
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of plantillas">
+            <td>   {{item.Raiz}}</td>
+            <td> {{item.Name}} </td>
+            <td>   {{item.Description}}</td>
+            <td> {{item.Umbral}} </td>         
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)= "EditRecord(item)">
+                    editar  </button>
+                
+            
+            
+            </td>       
+          </tr>
+        </tbody>
+    </table>
+    
+    <!-- The Modal -->
+              <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="l1">editando</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div >
+                      <h1 style="margin-top: 25px;">
+                      </h1>
+                      <div class="">
+                          <div class="col-md-12 l1" >
+                              Raiz de Consecutivo:
+                            </div>            
+
+                        <div class="col-md-12">
+                          <input type="text" class="form-control" [(ngModel)]="plantillaRaice1" placeholder="Raiz de Consecutivo"> 
+                        </div>                <br/>
+                        <div class="col-md-12 l1" >
+                            Nombre Plantilla:
+                          </div> 
+                        <div class="col-md-12">
+                          <input type="text" class="form-control" [(ngModel)]="plantillaName1" placeholder="Nombre Plantilla"> 
+                        </div> <br/>
+                        <div class="col-md-12 l1" >
+                            Raiz de Consecutivo:
+                          </div> 
+                        <div class="col-md-12">
+                          <input type="text" class="form-control" [(ngModel)]="plantillaDescription1" placeholder="Descripcion de Plantilla"> 
+                        </div> <br/>
+                        <div class="col-md-12 l1" >
+                            Umbral de valoración minimo requerido (%):
+                          </div> 
+                        <div class="col-md-12">
+                          <input type="text" class="form-control" [(ngModel)]="plantillaUmbral1" placeholder="Umbral de valoración minimo requerido (%)"> 
+                        </div> <br/>
+                        <div class="col-md-6">
+                       
+                  
+                                <button type="button" class="btn btn-warning col-md-6" (click)="UpdateRecord()" data-dismiss="modal"  >editar</button>
+                                <button type="button" class="btn btn-danger col-md-6" (click)= "RemoveRecord()" data-dismiss="modal"> eliminar</button> 
+
+                  
+                  
+                  
+                        </div>
+                    </div>
+                    
+                   
+                    </div> 
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
