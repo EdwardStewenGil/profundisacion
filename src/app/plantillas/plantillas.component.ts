@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { CriteriosComponent } from "../criterios/criterios.component";
+
 
 @Component({
   selector: 'app-plantillas',
@@ -7,9 +9,12 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./plantillas.component.scss']
 })
 export class PlantillasComponent implements OnInit {
+
+
    mostrar1=false;
    mostrar2=true;
    mostrar3=false;
+   busqueda=String;
   plantillas: any;
   plantillaRaice: String;
   plantillaName: String;
@@ -25,6 +30,7 @@ export class PlantillasComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    
     this.auth.read_Plantilla().subscribe(data => {
       this.plantillas = data.map(e => {
         return{
@@ -52,11 +58,27 @@ CreateRecord(){
     this.plantillaName = "";
     this.plantillaDescription = "";
     this.plantillaUmbral = undefined;
-    console.log(resp);
+    
+    
+  
   })
+  
   .catch(error=> {
     console.log(error);
   });
+ 
+}
+
+criterios(record){
+ 
+  this.plantillaid1=record.id;
+  this.plantillaRaice1=record.Description;
+  this.plantillaName1=record.Name;
+  this.plantillaDescription1 =record.Raiz;
+  this.plantillaUmbral1 =record.Umbral;
+
+ 
+
 }
 
 RemoveRecord() {
@@ -66,9 +88,9 @@ RemoveRecord() {
 EditRecord(record) {
   console.log(record)
   this.plantillaid1=record.id;
-  this.plantillaRaice1=record.Description;
+  this.plantillaRaice1=record.Raiz;
   this.plantillaName1=record.Name;
-  this.plantillaDescription1 =record.Raiz;
+  this.plantillaDescription1 =record.Description;
   this.plantillaUmbral1 =record.Umbral;
 
   console.log(this.plantillaRaice1)
@@ -83,7 +105,6 @@ record['Raiz'] = this.plantillaRaice1;
   record['Name'] = this.plantillaName1;
   record['Description'] = this.plantillaDescription1;
   record['Umbral'] = this.plantillaUmbral1;
-  console.log(record)
   this.auth.update_Plantilla(this.plantillaid1,record);
 
 

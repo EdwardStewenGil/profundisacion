@@ -18,6 +18,7 @@ export class AuthService {
   id1="IfQLkisuXED3t8KYVb7";
   newUser: any;
   url="";
+  
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -112,9 +113,9 @@ export class AuthService {
   create_NewCriterios(record){
     return this.db.collection('Criterios').add(record);
   }
-  read_Criterios(){
-    return this.db.collection('Criterios').snapshotChanges();
-  }
+  read_Criterios(id_plantilla2){
+    return this.db.collection('Criterios' , ref  =>  ref . where ( 'Plantilla' , '==' , id_plantilla2 )).snapshotChanges()
+    }
   update_Criterios(recordID, record){
     this.db.doc('Criterios/' + recordID).update(record);
   }

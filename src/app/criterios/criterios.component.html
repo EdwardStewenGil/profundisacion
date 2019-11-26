@@ -1,103 +1,186 @@
 
-    
-    <h1 style="margin-left: 250px;">
-    Criterios
-    </h1>
-    
-    <div class="container">
+<h2 class="l2">Plantilla : {{nombre_plantilla2}}   </h2>
 
-    <div class="col-sm-16" style="margin-top: 25px;">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">crear criterio  </button>
+  <button type="button" class="btn btn-warning"  (click)= "volver()"  > Plantillas  </button>
+
+
+
+
+<div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+      <div class="modal-content">
       
-        <div class="col-sm-8">
-        <input type="text" class="form-control" [(ngModel)]="criterio_valor" placeholder="Criterio de Valoración">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="l1">Crear Criterio</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+        
+        <!-- Modal body -->
+       
+
+       
+        <br>
+            
+            <div class="col-sm-12">
+              <input type="text" class="form-control" [(ngModel)]="criterio_valor" placeholder="Criterio de Valoración">
+            </div> 
+            
+            <br>
+            
+            <div class="col-sm-12">
+              <input type="text" class="form-control" [(ngModel)]="tipo_criterio" placeholder="Tipo de Criterio">
+            </div>  
+            
+            <br>
+      
+            <div class="col-sm-12">
+              <input type="text" class="form-control" [(ngModel)]="descripcion" placeholder="Descripcion Criterio">
+            </div>      
+            
+          
+            
+          
+            
+            <br>
+      
+            <div class="col-sm-12">
+              <input type="text" class="form-control" [(ngModel)]="ponderacion" placeholder="Ponderación Criterio">
+            </div>
+      
+            <br>
+            
+      
+            <div class="col-sm-12">  
+      
+              <button type="button" class="btn btn-warning" (click)="CreateRecordC()" data-dismiss="modal" >Guardar Criterio</button>
+              
+           </div>
+            
+          
+        
+       
+
+  
+        
+        <!-- Modal footer -->
+       <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+       </div>
+        
+     </div>
+   </div>
+  </div>
+
+
+
+
+
+
+
+
+  <table class="table table-striped a8 table-hover  table-condensed" >
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th>Tipo</th>
+        <th>Descripcion</th>
+        <th>Ponderacion</th>
+        <th>Acciones</th>
+
+        
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of criterios">
+        <td>   {{item.Criterio}}</td>
+        <td> {{item.Tipo}} </td>
+        <td>  {{item.Descripcion}}</td>
+        <td> {{item.Ponderacion}}</td>         
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" (click)= "EditRecord(item)">
+                editar  </button>
+            
+        
+        
+        </td>       
+      </tr>
+    </tbody>
+</table>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal4">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="l1">Editando Criterio</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div >
+        <h1 style="margin-top: 25px;">
+        </h1>
+        <div class="">
+            <div class="col-md-12 l1" >
+              criterio:
+              </div>            
+
+          <div class="col-md-12">
+            <input type="text" class="form-control" [(ngModel)]= "criterio_valor1" placeholder=" criterio">
+          </div>                <br/>
+          <div class="col-md-12 l1" >
+            Tipo Criterio:
+            </div> 
+          <div class="col-md-12">
+
+            <input type="text" class="form-control" [(ngModel)]= "tipo_criterio1" placeholder=" tipo criterio">
+          </div> <br/>
+          <div class="col-md-12 l1" >
+            Descripcion:
+            </div> 
+          <div class="col-md-12">
+            <input type="text" class="form-control" [(ngModel)]= "descripcion1" placeholder="Descripcion">
+          </div> <br/>
+          <div class="col-md-12 l1" >
+            Ponderacion:
+            </div> 
+          <div class="col-md-12">
+
+            <input type="text" class="form-control" [(ngModel)]= "ponderacion1" placeholder="Ponderacion">
+          </div> <br/>
+          <div class="col-md-6">
+         
+    
+                  <button type="button" class="btn btn-warning col-md-6" (click)="UpdateRecordC()" data-dismiss="modal"  >editar</button>
+                  <button type="button" class="btn btn-danger col-md-6" (click)= "RemoveRecordC()" data-dismiss="modal"> eliminar</button> 
+
+    
+    
+    
+          </div>
+      </div>
+      
+     
       </div> 
       
-      <br>
-      
-      <div class="col-sm-8">
-        <input type="text" class="form-control" [(ngModel)]="tipo_criterio" placeholder="Tipo de Criterio">
-      </div>  
-      
-      <br>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
-      <div class="col-sm-8">
-        <input type="text" class="form-control" [(ngModel)]="descripcion" placeholder="Descripcion Criterio">
-      </div>      
-      
-      <br>
-      
-      <div class="col-sm-8">
-        <input type="text" class="form-control" [(ngModel)]="id_plantilla" placeholder="ID Plantilla">
-      </div>   
-      
-      <br>
-
-      <div class="col-sm-8">
-        <input type="text" class="form-control" [(ngModel)]="ponderacion" placeholder="Ponderación Criterio">
       </div>
-
-      <br>
       
-
-      <div class="col-sm-8">  
-
-        <button type="button" class="btn btn-danger">Cancelar</button> 
-        <button type="button" class="btn btn-warning" (click)="CreateRecordC()" [disabled]="!criterio_valor || !tipo_criterio || !descripcion || !id_plantilla || !ponderacion" >Guardar Criterio</button>
-     </div>
-  </div>
-  
-</div>
- 
-  
-
-  <div class="row margen6" style="margin-top: 25px;">
-    <div class="margen6 col-md-3">
-      <div class="card margen6" style="width: 18rem;" *ngFor="let item of criterios">
-        <div class=" card-body" *ngIf="!item.isEdit; else elseBlock">
-            <h5 class="card-title"> Criterio {{item.Criterio}} </h5>
-            <h6 class="card-subtitle mb-2 text-muted"> Tipo: {{item.Tipo}}  </h6>
-            <p class="card-text"> Descripcion: {{item.Description}} </p>
-            <p class="card-text"> Ponderacion: {{item.Ponderacion}} </p>
-            <p class="card-text"> Plantilla: {{item.Plantilla}} </p>
-            
-            <a  class="card-link" (click)= "EditRecordC(item)"> Edit </a>
-            <a  class="card-link" (click)= "RemoveRecordC(item.id)"> Delete </a>
-        </div>
-
-        <ng-template #elseBlock>
-          <div class="card-body">
-            <h5 class="card-title">Editar</h5>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-12">
-                  <input type="text" class="form-control" [(ngModel)]= "item.EditCriterio" placeholder="Edit raiz">
-                </div>
-                <div class="col-md-12">
-                    <input type="text" class="form-control" [(ngModel)]= "item.EditTipoCriterio" placeholder="Edit name">
-                </div>
-                
-                <div class="col-md-12">
-                  <input type="text" class="form-control" [(ngModel)]= "item.EditDescripcion" placeholder="Edit Descripcion">
-              </div>
-              <div class="col-md-12">
-                <input type="text" class="form-control" [(ngModel)]= "item.EditPlantilla" placeholder="Edit Plantilla">
-            </div>
-            <div class="col-md-12">
-                <input type="text" class="form-control" [(ngModel)]= "item.EditPonderacion" placeholder="Edit Ponderacion">
-            </div>
-              </div>
-            </div>
-            <a href="#" class="card-link" (click)="item.isEdit= false">Cancel</a>
-            <a href="#" class="card-link" (click)="UpdateRecordC(item)">Actualizar</a>
-          </div>
-        </ng-template>
-      </div>
     </div>
   </div>
+</div>
 
 
 
 
- 
 
 

@@ -1,4 +1,3 @@
-<button type="button" class="btn btn-primary" (click)="mostrar1=true"   (click)="mostrar2=false"   (click)="mostrar3=false">  Crear nueva plantilla  </button>
        
    <div  *ngIf="mostrar1">   
 
@@ -23,7 +22,7 @@
            
       
               <button type="button" class="btn btn-danger" (click)="mostrar1=false"   (click)="mostrar2=true" (click)="mostrar3=false">Cancelar</button>
-                    <button type="button" class="btn btn-warning" (click)="CreateRecord()"  (click)="mostrar1=false" (click)="mostrar2=false" (click)="mostrar3=true" >Siguiente</button>
+                    <button type="button" class="btn btn-warning" (click)="CreateRecord()"    (click)="mostrar1=false" (click)="mostrar2=true" (click)="mostrar3=false" >Guardar</button>
       
       
       
@@ -38,13 +37,13 @@
 
           
    <div  *ngIf="mostrar3"> 
-     <app-criterios></app-criterios>
-   </div>
+    <app-criterios  [(id_plantilla2)]="plantillaid1"  [(nombre_plantilla2)]="plantillaName1"  ></app-criterios>   </div>
 
 
      
      <div  *ngIf="mostrar2">
-        
+      <button type="button" class="btn btn-primary" (click)="mostrar1=true"   (click)="mostrar2=false"   (click)="mostrar3=false">  Crear nueva plantilla  </button>
+
         
       <table class="table table-striped a8 table-hover  table-condensed" >
         <thead>
@@ -67,6 +66,8 @@
             <td>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)= "EditRecord(item)">
                     editar  </button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"  (click)= "criterios(item)"  (click)="mostrar1=false" (click)="mostrar2=false" (click)="mostrar3=true">
+                      criterios  </button>
                 
             
             
@@ -141,3 +142,7 @@
                 </div>
               </div>
             </div>
+
+
+
+

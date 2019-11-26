@@ -10,12 +10,18 @@ import { EvaluadorComponent } from './evaluador/evaluador.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { TrabajadorComponent } from './trabajador/trabajador.component';
 import { CriteriosComponent } from './criterios/criterios.component';
+import { CentroComponent } from './centro/centro.component';
+
 
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent  
+  },
+  {
+    path: 'Administrador',
+    component: CentroComponent  
   },
   {
     path: 'criterio',
