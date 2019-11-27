@@ -13,11 +13,11 @@ export class CriteriosComponent implements OnInit {
   @Input() id_plantilla2: String;
   @Input() nombre_plantilla2: String;
   @Output() emitEvent:EventEmitter<boolean> = new EventEmitter<boolean>();
- 
- 
+
+
 
   criterios: any;
-  
+
   id_criterio: String;
   criterio_valor: String;
   tipo_criterio: String;
@@ -35,7 +35,7 @@ export class CriteriosComponent implements OnInit {
 
   ngOnInit() {
 
- 
+
 console.log(this.nombre_plantilla2)
 console.log(this.id_plantilla2)
 
@@ -53,7 +53,7 @@ console.log(this.id_plantilla2)
       console.log(this.criterios);
 
     });
-    
+
   }
 
   CreateRecordC(){
@@ -63,7 +63,7 @@ console.log(this.id_plantilla2)
     record['Descripcion'] = this.descripcion;
     record['Plantilla'] = this.id_plantilla2;
     record['Ponderacion'] = this.ponderacion;
-    this.auth.create_NewCriterios(record).then(resp =>{      
+    this.auth.create_NewCriterios(record).then(resp =>{
       this.criterio_valor = "";
       this.tipo_criterio = "";
       this.descripcion = "";
@@ -80,7 +80,7 @@ console.log(this.id_plantilla2)
   }
 
   EditRecord(record) {
- 
+
     this.id_criterio1=record.id;
     this.criterio_valor1=record.Criterio;
     this.tipo_criterio1=record.Tipo;
@@ -94,7 +94,7 @@ console.log(this.id_plantilla2)
 
   }
   UpdateRecordC(recordRow){
-    let record = { };      
+    let record = { };
       record['Criterio'] =  this.criterio_valor1;
       record['Tipo'] =  this.tipo_criterio1;
       record['Descripcion'] = this.descripcion1;

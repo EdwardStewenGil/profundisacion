@@ -2,7 +2,7 @@
 
   <div class="container">
     <h1 style="margin-top: 25px;">
-    
+
     </h1>
     <div class="row" style="margin-top: 25px;">
       <div class="col-md-2">
@@ -18,7 +18,7 @@
         <input type="text" class="form-control" [(ngModel)]="plantillaUmbral" placeholder="Umbral de valoración minimo requerido (%)">
       </div>
       <div class="col-md-2">
-     
+
 
         <button type="button" class="btn btn-danger">Cancelar</button>
               <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!plantillaRaice || !plantillaName || !plantillaDescription || !plantillaUmbral" >Siguiente</button>
@@ -27,9 +27,9 @@
 
       </div>
   </div>
-  
- 
-  </div> 
+
+
+  </div>
 
 
 
@@ -43,7 +43,7 @@
             <p class="card-text"> descripcion: {{item.Description}} </p>
             <p class="card-text"> umbral: {{item.Umbral}} </p>
 
-            
+
             <a  class="card-link" (click)= "EditRecord(item)"> Edit </a>
             <a  class="card-link" (click)= "RemoveRecord(item.id)"> Delete </a>
         </div>

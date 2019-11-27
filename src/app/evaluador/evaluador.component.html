@@ -1,6 +1,6 @@
 <app-usuario></app-usuario>
 
- 
+
 <h3>Linea de Paginación</h3>
 <mat-divider></mat-divider>
 
@@ -8,26 +8,70 @@
 
 <div class="row col-sm-12">
 <div class="col-sm-2 a1">
- <br/>   
+ <br/>
  <div class="link1">
  <button mat-menu-item  class="link" >Listas de chequeo</button>
- <br/>            
+ <br/>
 </div>
 
-    
+
  </div>
     <div class="col-sm-10">
-   
-     
-     <app-chequeo></app-chequeo>
-
-       
 
 
 
+
+  <div class="container">
+    <h1 style="margin-top: 25px;">
+
+    </h1>
+    <div class="row" style="margin-top: 25px;">
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="referencia" placeholder="Referencia">
+      </div>
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="lista" placeholder="Lista de Chequeo">
+      </div>
+
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="autor" placeholder="Autor">
+      </div>
+
+      <div class="col-md-8">
+        <input type="date" class="form-control" [(ngModel)]="fecha" placeholder="Fecha">
+
+      </div>
+
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="estado" placeholder="Estado">
+      </div>
+
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="observacion" placeholder="Observacion">
+      </div>
+
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="id_plantilla" placeholder="ID Plantilla">
+      </div>
+
+      <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="umbral" placeholder="Umbral">
+      </div>
+
+      <div class="col-md-8">
+ <button type="button" class="btn btn-danger">Cancelar</button>
+ <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!referencia || !lista || !autor || !fecha  || !estado  || !observacion  || !id_plantilla  || !umbral" >Siguiente</button>
      </div>
-     
- 
+  </div>
+
+  <p> {{ evaluador.fecha }}  </p>
+
+  </div>
+
+
+  </div>
+
+
  </div>
 
 

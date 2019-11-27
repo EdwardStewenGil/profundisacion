@@ -17,15 +17,15 @@ import { CentroComponent } from './centro/centro.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent  
+    component: LoginComponent
   },
   {
     path: 'Administrador',
-    component: CentroComponent  
+    component: CentroComponent
   },
   {
     path: 'criterio',
-    component: CriteriosComponent  
+    component: CriteriosComponent
   },
   {
     path: 'register',
@@ -37,12 +37,12 @@ const routes: Routes = [
   },
   {
     path: 'criterios',
-    component: CriteriosComponent 
+    component: CriteriosComponent
 
   },
   {
     path: 'administrador',
-    component: AdministradorComponent  
+    component: AdministradorComponent
   },
   {
     path: 'evaluador',
@@ -55,11 +55,11 @@ const routes: Routes = [
 
   {
     path: 'inicio',
-    component: InicioComponent 
+    component: InicioComponent
   },
   {
     path: 'hider',
-    component: HiderComponent 
+    component: HiderComponent
   },
   {
     path: '',

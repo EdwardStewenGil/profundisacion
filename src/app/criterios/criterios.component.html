@@ -4,72 +4,65 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">crear criterio  </button>
   <button type="button" class="btn btn-warning"  (click)= "volver()"  > Plantillas  </button>
 
-
-
-
 <div class="modal fade" id="myModal3">
     <div class="modal-dialog">
       <div class="modal-content">
-      
+
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="l1">Crear Criterio</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
          </div>
-        
-        <!-- Modal body -->
-       
 
-       
-        <br>
-            
+        <!-- Modal body --><br>
+
             <div class="col-sm-12">
               <input type="text" class="form-control" [(ngModel)]="criterio_valor" placeholder="Criterio de Valoración">
-            </div> 
-            
+            </div>
+
             <br>
-            
+
             <div class="col-sm-12">
               <input type="text" class="form-control" [(ngModel)]="tipo_criterio" placeholder="Tipo de Criterio">
-            </div>  
-            
+            </div>
+
             <br>
-      
+
             <div class="col-sm-12">
               <input type="text" class="form-control" [(ngModel)]="descripcion" placeholder="Descripcion Criterio">
-            </div>      
-            
-          
-            
-          
-            
+            </div>
+
+
+
+
+
             <br>
-      
+
             <div class="col-sm-12">
               <input type="text" class="form-control" [(ngModel)]="ponderacion" placeholder="Ponderación Criterio">
             </div>
-      
-            <br>
-            
-      
-            <div class="col-sm-12">  
-      
-              <button type="button" class="btn btn-warning" (click)="CreateRecordC()" data-dismiss="modal" >Guardar Criterio</button>
-              
-           </div>
-            
-          
-        
-       
 
-  
-        
+            <br>
+
+
+            <div class="col-sm-12">
+
+              <button type="button" class="btn btn-warning" (click)="CreateRecordC()" data-dismiss="modal" >Guardar Criterio</button>
+
+           </div>
+
+
+
+
+
+
+
         <!-- Modal footer -->
        <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
        </div>
-        
+
      </div>
    </div>
   </div>
@@ -90,8 +83,8 @@
         <th>Ponderacion</th>
         <th>Acciones</th>
 
-        
-      
+
+
       </tr>
     </thead>
     <tbody>
@@ -99,14 +92,14 @@
         <td>   {{item.Criterio}}</td>
         <td> {{item.Tipo}} </td>
         <td>  {{item.Descripcion}}</td>
-        <td> {{item.Ponderacion}}</td>         
+        <td> {{item.Ponderacion}}</td>
         <td>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" (click)= "EditRecord(item)">
                 editar  </button>
-            
-        
-        
-        </td>       
+
+
+
+        </td>
       </tr>
     </tbody>
 </table>
@@ -115,13 +108,13 @@
 <div class="modal fade" id="myModal4">
   <div class="modal-dialog">
     <div class="modal-content">
-    
+
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="l1">Editando Criterio</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      
+
       <!-- Modal body -->
       <div >
         <h1 style="margin-top: 25px;">
@@ -129,52 +122,52 @@
         <div class="">
             <div class="col-md-12 l1" >
               criterio:
-              </div>            
+              </div>
 
           <div class="col-md-12">
             <input type="text" class="form-control" [(ngModel)]= "criterio_valor1" placeholder=" criterio">
           </div>                <br/>
           <div class="col-md-12 l1" >
             Tipo Criterio:
-            </div> 
+            </div>
           <div class="col-md-12">
 
             <input type="text" class="form-control" [(ngModel)]= "tipo_criterio1" placeholder=" tipo criterio">
           </div> <br/>
           <div class="col-md-12 l1" >
             Descripcion:
-            </div> 
+            </div>
           <div class="col-md-12">
             <input type="text" class="form-control" [(ngModel)]= "descripcion1" placeholder="Descripcion">
           </div> <br/>
           <div class="col-md-12 l1" >
             Ponderacion:
-            </div> 
+            </div>
           <div class="col-md-12">
 
             <input type="text" class="form-control" [(ngModel)]= "ponderacion1" placeholder="Ponderacion">
           </div> <br/>
           <div class="col-md-6">
-         
-    
-                  <button type="button" class="btn btn-warning col-md-6" (click)="UpdateRecordC()" data-dismiss="modal"  >editar</button>
-                  <button type="button" class="btn btn-danger col-md-6" (click)= "RemoveRecordC()" data-dismiss="modal"> eliminar</button> 
 
-    
-    
-    
+
+                  <button type="button" class="btn btn-warning col-md-6" (click)="UpdateRecordC()" data-dismiss="modal"  >editar</button>
+                  <button type="button" class="btn btn-danger col-md-6" (click)= "RemoveRecordC()" data-dismiss="modal"> eliminar</button>
+
+
+
+
           </div>
       </div>
-      
-     
-      </div> 
-      
+
+
+      </div>
+
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 
       </div>
-      
+
     </div>
   </div>
 </div>

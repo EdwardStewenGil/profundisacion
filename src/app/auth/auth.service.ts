@@ -18,7 +18,7 @@ export class AuthService {
   id1="IfQLkisuXED3t8KYVb7";
   newUser: any;
   url="";
-  
+
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -39,7 +39,7 @@ export class AuthService {
           console.log(userCredential.user.updateProfile);
           console.log(userCredential.user.photoURL);
           console.log(password);
-          console.log(email); 
+          console.log(email);
           console.log(email);
           if (userCredential.user.photoURL == "Administrador")
           this.router.navigate(['/administrador']);
@@ -47,7 +47,7 @@ export class AuthService {
        this.router.navigate(['/evaluador']);
        else if (userCredential.user.photoURL == "Trabajador")
        this.router.navigate(['/trabajador']);
-        
+
 
         }
       })
@@ -60,10 +60,10 @@ export class AuthService {
         this.newUser = user;
         console.log(userCredential);
         userCredential.user.updateProfile( {
-       
+
           displayName: user.firstName + ' ' + user.lastName,
           photoURL: user.role
-        
+
 
         });
 
@@ -103,13 +103,13 @@ export class AuthService {
     this.db.doc('Plantillas/' + record_id).delete();
   }
 
- 
+
   read_Criterios_ID(id){
     return this.db.collection('Criterios/' + id).snapshotChanges();
   }
 
 
-  
+
   create_NewCriterios(record){
     return this.db.collection('Criterios').add(record);
   }
@@ -122,6 +122,21 @@ export class AuthService {
   delete_Criterios(record_id){
     this.db.doc('Criterios/' + record_id).delete();
   }
+
+
+  create_NewEvaluador(record){
+    return this.db.collection('Evaluador').add(record);
+  }
+  read_Evaluador(){
+    return this.db.collection('Evaluador').snapshotChanges()
+    }
+  update_Evaluador(recordID, record){
+    this.db.doc('Evaluador/' + recordID).update(record);
+  }
+  delete_Evaluador(record_id){
+    this.db.doc('Evaluador/' + record_id).delete();
+  }
+
 
 
 
