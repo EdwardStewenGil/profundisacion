@@ -103,19 +103,7 @@ export class EvaluadorComponent implements OnInit {
       this.user = user;
     })
 
-    this.auth.read_Obs().subscribe(data => {
-      this.observacion1 = data.map(e => {
-        return{
-          id: e.payload.doc.id,
-          isEdit: false,
-          Criterio: e.payload.doc.data()['Criterio'],
-          Ponderacion: e.payload.doc.data()['Ponderacion'],
-          Valor: e.payload.doc.data()['Valor'],
-        };
-      })
-      console.log(this.observacion1);
-
-    });
+  
 
   
 
@@ -392,9 +380,7 @@ this.auth.read_Criterios(item1.idplantillaname).subscribe(data => {
 
   cumplio(item2){
     console.log(item2)
-    console.log(this.idlista)
-    console.log(this.idlista)
-    console.log(this.idlista)
+  
     console.log(this.idlista)
 
     let record = {};
@@ -473,6 +459,24 @@ let record = {};
   }
 
 
+
+
+  buscarbusqueda() {
+
+  this.auth.read_Obs(this.idlista ).subscribe(data => {
+    this.observacion1 = data.map(e => {
+      return{
+        id: e.payload.doc.id,
+        isEdit: false,
+        Criterio: e.payload.doc.data()['Criterio'],
+        Ponderacion: e.payload.doc.data()['Ponderacion'],
+        Valor: e.payload.doc.data()['Valor'],
+      };
+    })
+    console.log(this.observacion1);
+
+  });
+}
 }
 
 
