@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
+import { formatDate } from '@angular/common';
+
+
 @Component({
   selector: 'app-evaluador',
   templateUrl: './evaluador.component.html',
@@ -11,7 +14,9 @@ import { Router } from '@angular/router';
 
 
 export class EvaluadorComponent implements OnInit {
-  
+
+  today= new Date();
+  jstoday = '';
   //  aqui esta el usuario
   user: firebase.User;
   plantillas3: any;
@@ -32,7 +37,7 @@ export class EvaluadorComponent implements OnInit {
   umbral: number;
   created_at: Date;
   idplantillaname: String;
-  
+
 
 
 // aqui esta plantilla
@@ -75,8 +80,8 @@ export class EvaluadorComponent implements OnInit {
     .subscribe( user => {
       this.user = user;
     })
-    
-   
+
+
 
      this.auth.read_Evaluador().subscribe(data => {
       this.evaluador = data.map(e => {
@@ -97,7 +102,7 @@ export class EvaluadorComponent implements OnInit {
 
     });
 
-        
+
     this.auth.read_Plantilla().subscribe(data => {
       this.plantillas = data.map(e => {
         return{
@@ -116,7 +121,7 @@ export class EvaluadorComponent implements OnInit {
     });
 
 
-  
+
 
 
 
@@ -126,13 +131,13 @@ export class EvaluadorComponent implements OnInit {
 
   CreateRecord(item){
 
-  
-  var dateDay = new Date().toDateString();
+ this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', 'UTC-5');
+
   let record = {};
   record['Referencia'] = this.referencia;
   record['Lista'] = this.lista;
   record['Autor'] = this.user.displayName;
-  record['Fecha'] = this.fecha;
+  record['Fecha'] = this.jstoday;
   record['Estado'] = this.estado;
   record['Observacion'] = this.observacion;
   record['Plantilla'] = this.nameplantilla;
@@ -141,13 +146,13 @@ export class EvaluadorComponent implements OnInit {
     this.referencia = "";
     this.lista = "";
     this.autor = "";
-    this.fecha = dateDay;
+    this.fecha = " ";
     this.estado = "";
     this.observacion = "";
     this.nameplantilla = "";
     this.umbral = undefined;
     console.log(resp);
-    console.log(dateDay);
+
   })
   .catch(error=> {
     console.log(error);
@@ -202,16 +207,16 @@ let record = {};
           Name: e.payload.doc.data()['Name'],
           Description: e.payload.doc.data()['Description'],
           Umbral: e.payload.doc.data()['Umbral'],
-          
+
         };
       })
       console.log(this.plantillas3);
-     
+
 
 
     })
-    
-    
+
+
     ;
 }
 
@@ -220,12 +225,12 @@ let record = {};
   plantilla(item){
     console.log(item)
 
-    
+
   this.nameplantilla=item.Name
   this.umbral=item.Umbral
   this.idplantillaname=item.id
 
- 
+
 console.log(this.nameplantilla)
 console.log(this.umbral)
 console.log(this.idplantillaname)
