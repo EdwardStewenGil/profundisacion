@@ -155,6 +155,10 @@ export class AuthService {
     return this.db.collection('Observacion' , ref  =>  ref . where ( 'idlista' , '==' , idlista )).snapshotChanges()
     }
 
+    read_Obs1(){
+      return this.db.collection('Observacion' ).snapshotChanges()
+      }
+
   update_Obs(recordID, record){
     this.db.doc('Observacion/' + recordID).update(record);
   }

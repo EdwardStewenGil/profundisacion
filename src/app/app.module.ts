@@ -35,6 +35,7 @@ import { PlantillasComponent } from './plantillas/plantillas.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { CriteriosComponent } from './criterios/criterios.component';
 import { ObservacionComponent } from './observacion/observacion.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ObservacionComponent } from './observacion/observacion.component';
     PlantillasComponent,
     ReportesComponent,
     CriteriosComponent,
-    ObservacionComponent
+    ObservacionComponent,
+    PruebaComponent
 
   ],
   imports: [
