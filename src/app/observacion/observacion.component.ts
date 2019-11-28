@@ -8,17 +8,16 @@ import { AuthService } from '../auth/auth.service';
 })
 export class ObservacionComponent implements OnInit {
 
-  observacion: any;
-
-  criterio: String;
-  ponderacion: number;
-  valor: String;
+  observacion1: any;
+  criterio5: String;
+  ponderacion5: number;
+  valor5: String;
 
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
    this.auth.read_Obs().subscribe(data => {
-      this.observacion = data.map(e => {
+      this.observacion1 = data.map(e => {
         return{
           id: e.payload.doc.id,
           isEdit: false,
@@ -27,21 +26,21 @@ export class ObservacionComponent implements OnInit {
           Valor: e.payload.doc.data()['Valor'],
         };
       })
-      console.log(this.observacion);
+      console.log(this.observacion1);
 
     });
 
   }
 
-  CreateRecord(){
+  CreateRecord3(){
   let record = {};
-  record['Criterio'] = this.criterio;
-  record['Ponderacion'] = this.ponderacion;
-  record['Valor'] = this.valor;
+  record['Criterio'] = this.criterio5;
+  record['Ponderacion'] = this.ponderacion5;
+  record['Valor'] = this.valor5;
   this.auth.create_Obs(record).then(resp =>{
-    this.criterio = "";
-    this.ponderacion = undefined;
-    this.valor = "";
+    this.criterio5 = "";
+    this.ponderacion5 = undefined;
+    this.valor5 = "";
     console.log(resp);
   })
   .catch(error=> {
@@ -49,11 +48,11 @@ export class ObservacionComponent implements OnInit {
   });
 }
 
-RemoveRecord(rowID) {
+RemoveRecord3(rowID) {
   this.auth.delete_Plantilla(rowID);
 }
 
-EditRecord(record) {
+EditRecord3(record) {
   record.isEdit=true;
   record.EditCriterio=record.Criterio;
   record.EditPonderacion=record.Ponderacion;
@@ -61,7 +60,7 @@ EditRecord(record) {
 
 }
 
-UpdateRecord(recordRow){
+UpdateRecord3(recordRow){
 let record = {};
   record['Criterio'] = recordRow.Criterio;
   record['Ponderacion'] = recordRow.Ponderacion;
