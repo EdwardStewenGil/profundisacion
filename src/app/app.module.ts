@@ -34,6 +34,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { PlantillasComponent } from './plantillas/plantillas.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { CriteriosComponent } from './criterios/criterios.component';
+import { ObservacionComponent } from './observacion/observacion.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { CriteriosComponent } from './criterios/criterios.component';
     UsuarioComponent,
     PlantillasComponent,
     ReportesComponent,
-    CriteriosComponent
+    CriteriosComponent,
+    ObservacionComponent
 
   ],
   imports: [

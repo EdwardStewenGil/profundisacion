@@ -11,7 +11,7 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { TrabajadorComponent } from './trabajador/trabajador.component';
 import { CriteriosComponent } from './criterios/criterios.component';
 import { CentroComponent } from './centro/centro.component';
-
+import { ObservacionComponent } from './observacion/observacion.component';
 
 
 const routes: Routes = [
@@ -47,6 +47,11 @@ const routes: Routes = [
   {
     path: 'evaluador',
     component: EvaluadorComponent
+  },
+  {
+    path: 'observacion',
+    component: ObservacionComponent
+
   },
   {
     path: 'trabajador',

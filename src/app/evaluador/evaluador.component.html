@@ -21,7 +21,7 @@
 <div  *ngIf="mostrar2">
       <button type="button" class="btn btn-warning"   (click)="mostrar1=true"  (click)="mostrar2=false" (click)="mostrar3=false"  >crear evaluacion</button>
     </div>
-      
+
     <div   *ngIf="mostrar1">
 
 
@@ -31,38 +31,38 @@
 
     </h1>
     <div class="row" style="margin-top: 25px;">
-      <div class="col-md-8">
+      <div class="col-md-8" style="margin-top: 5px">
         <input type="text" class="form-control" [(ngModel)]="referencia" placeholder="Referencia">
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8" style="margin-top: 5px">
         <input type="text" class="form-control" [(ngModel)]="lista" placeholder="Lista de Chequeo">
       </div>
 
- 
 
-      <div class="col-md-8">
-        <input type="date" class="form-control" [(ngModel)]="fecha" placeholder="Fecha">
+
+      <div class="col-md-8" style="margin-top: 5px">
+        <input type="date" class="form-control" [(ngModel)]="fecha" placeholder="Fecha" disabled>
 
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-8" style="margin-top: 5px">
         <input type="text" class="form-control" [(ngModel)]="estado" placeholder="Estado">
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-8" style="margin-top: 5px">
         <input type="text" class="form-control" [(ngModel)]="observacion" placeholder="Observacion">
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-8" style="margin-top: 5px">
         <button type="button" class=" btn-primary" data-toggle="modal" data-target="#myModal5" >
           Buscar Plantilla  </button>
       </div>
 
-   
 
-      <div class="col-md-8">
+
+      <div class="col-md-8" style="margin-top: 5px">
  <button type="button" class="btn btn-danger" (click)="mostrar1=false"(click)="mostrar2=true"  (click)="mostrar3=true">Cancelar</button>
- <button type="button" class="btn btn-warning"   (click)="CreateRecord(item)"  (click)="mostrar1=false" (click)="mostrar2=true" (click)="mostrar3=true" >Siguiente</button>
+ <button type="button" class="btn btn-warning" style="margin-left: 5px"  (click)="CreateRecord(item)"  (click)="mostrar1=false" (click)="mostrar2=true" (click)="mostrar3=true" >Siguiente</button>
 
      </div>
   </div>
@@ -80,7 +80,7 @@
       </div>
 
       <!-- Modal body -->
-      
+
 
       <table class="table table-striped a8 table-hover  table-condensed" >
         <thead>
@@ -90,8 +90,8 @@
             <th>descripcion</th>
             <th>umbral</th>
             <th>opciones</th>
-            
-          
+
+
           </tr>
         </thead>
         <tbody>
@@ -99,15 +99,15 @@
             <td>   {{item.Raiz}}</td>
             <td> {{item.Name}} </td>
             <td>   {{item.Description}}</td>
-            <td> {{item.Umbral}} </td>         
+            <td> {{item.Umbral}} </td>
             <td>
-              
+
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"  (click)= "plantilla(item)"  data-dismiss="modal">
                       Seleccionar plantilla  </button>
-                
-            
-            
-            </td>       
+
+
+
+            </td>
           </tr>
         </tbody>
     </table>
@@ -142,8 +142,8 @@
         <th>Estado</th>
         <th>Accion</th>
 
-        
-      
+
+
       </tr>
     </thead>
     <tbody>
@@ -151,18 +151,18 @@
         <td>   {{item1.Referencia}}</td>
         <td> {{item1.Lista}} </td>
         <td>   {{item1.Autor}}</td>
-        <td> {{item1.Fecha}} </td>     
-        <td> {{item1.Estado}} </td>     
+        <td> {{item1.Fecha}} </td>
+        <td> {{item1.Estado}} </td>
         <td>
 
                 <button type="button" class="btn btn-primary" data-toggle="modal"    (click)="mostrar1=false" (click)="mostrar2=false" (click)="mostrar3=false">
                   Versionar  </button>
                   <button type="button" class="btn btn-danger" data-toggle="modal"    (click)="mostrar1=false" (click)="mostrar2=true" (click)="mostrar3=true" (click)="RemoveRecord(item1)">
                     Eliminar  </button>
-            
-        
-        
-        </td>       
+
+
+
+        </td>
       </tr>
     </tbody>
 </table>

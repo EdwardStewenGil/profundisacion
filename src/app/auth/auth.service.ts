@@ -99,7 +99,7 @@ export class AuthService {
   read_Plantilla1(nameplantilla){
     return this.db.collection('Plantillas' , ref  =>  ref . where ( 'Name' , '==' , nameplantilla )).snapshotChanges()
   }
-  
+
   update_Plantilla(recordID, record){
     this.db.doc('Plantillas/' + recordID).update(record);
   }
@@ -143,6 +143,24 @@ export class AuthService {
   }
   delete_Evaluador(record_id){
     this.db.doc('Evaluador/' + record_id).delete();
+  }
+
+
+
+    create_Obs(record){
+    return this.db.collection('Observacion').add(record);
+  }
+
+  read_Obs(){
+    return this.db.collection('Observacion').snapshotChanges()
+    }
+
+  update_Obs(recordID, record){
+    this.db.doc('Observacion/' + recordID).update(record);
+  }
+
+  delete_Obs(record_id){
+    this.db.doc('Observacion/' + record_id).delete();
   }
 
 
