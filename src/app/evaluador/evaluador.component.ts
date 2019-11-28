@@ -11,23 +11,72 @@ import { Router } from '@angular/router';
 
 
 export class EvaluadorComponent implements OnInit {
+  
+  //  aqui esta el usuario
+  user: firebase.User;
+  plantillas3: any;
+  mostrar1=false
+  mostrar2=true
+  mostrar3=true
 
 
+// aqui esta la lista de chequeo
   evaluador: any;
-
   referencia: String;
   lista: String;
   autor: String;
   fecha: String;
   estado: String;
   observacion: String;
-  id_plantilla: String;
+  nameplantilla: String;
   umbral: number;
   created_at: Date;
+  idplantillaname: String;
+  
+
+
+// aqui esta plantilla
+  busqueda=String;
+  plantillas: any;
+  plantillaRaice: String;
+  plantillaName: String;
+  plantillaDescription: String;
+  plantillaUmbral: number;
+  plantillaid1: String;
+  plantillas1: any;
+  plantillaRaice1: String;
+  plantillaName1: String;
+  plantillaDescription1: String;
+  plantillaUmbral1: number;
+
+
+//aqui esta criterio
+  criterios: any;
+  id_criterio: String;
+  criterio_valor: String;
+  tipo_criterio: String;
+  descripcion: String;
+  ponderacion: number;
+  id_criterio1: String;
+  criterio_valor1: String;
+  tipo_criterio1: String;
+  descripcion1: String;
+  id_plantilla1: String;
+  ponderacion1: number;
+
+
 
   constructor(private auth: AuthService , private router: Router) { }
 
   ngOnInit() {
+
+
+   this.auth.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    })
+    
+   
 
      this.auth.read_Evaluador().subscribe(data => {
       this.evaluador = data.map(e => {
@@ -48,19 +97,45 @@ export class EvaluadorComponent implements OnInit {
 
     });
 
+        
+    this.auth.read_Plantilla().subscribe(data => {
+      this.plantillas = data.map(e => {
+        return{
+          id: e.payload.doc.id,
+          isEdit: false,
+          Raiz: e.payload.doc.data()['Raiz'],
+          Name: e.payload.doc.data()['Name'],
+          Description: e.payload.doc.data()['Description'],
+          Umbral: e.payload.doc.data()['Umbral'],
+        };
+      })
+      console.log(this.plantillas);
+      console.log(this.plantillas);
+
+
+    });
+
+
+  
+
+
+
   }
 
-  CreateRecord(){
+// lista de criterios
 
+  CreateRecord(item){
+
+  
   var dateDay = new Date().toDateString();
   let record = {};
   record['Referencia'] = this.referencia;
   record['Lista'] = this.lista;
-  record['Autor'] = this.autor;
+  record['Autor'] = this.user.displayName;
   record['Fecha'] = this.fecha;
   record['Estado'] = this.estado;
   record['Observacion'] = this.observacion;
-  record['Plantilla'] = this.id_plantilla;
+  record['Plantilla'] = this.nameplantilla;
   record['Umbral'] = this.umbral;
   this.auth.create_NewEvaluador(record).then(resp =>{
     this.referencia = "";
@@ -69,7 +144,7 @@ export class EvaluadorComponent implements OnInit {
     this.fecha = dateDay;
     this.estado = "";
     this.observacion = "";
-    this.id_plantilla = "";
+    this.nameplantilla = "";
     this.umbral = undefined;
     console.log(resp);
     console.log(dateDay);
@@ -79,8 +154,8 @@ export class EvaluadorComponent implements OnInit {
   });
 }
 
-RemoveRecord(rowID) {
-  this.auth.delete_Evaluador(rowID);
+RemoveRecord(item) {
+  this.auth.delete_Evaluador(item.id);
 }
 
 EditRecord(record) {
@@ -111,6 +186,57 @@ let record = {};
 
   }
 
+  //plantillas
+
+  buscarplantilla() {
+
+    console.log(this.nameplantilla)
+
+
+    this.auth.read_Plantilla1(this.nameplantilla).subscribe(data => {
+      this.plantillas3 = data.map(e => {
+        return{
+          id: e.payload.doc.id,
+          isEdit: false,
+          Raiz: e.payload.doc.data()['Raiz'],
+          Name: e.payload.doc.data()['Name'],
+          Description: e.payload.doc.data()['Description'],
+          Umbral: e.payload.doc.data()['Umbral'],
+          
+        };
+      })
+      console.log(this.plantillas3);
+     
+
+
+    })
+    
+    
+    ;
 }
+
+
+
+  plantilla(item){
+    console.log(item)
+
+    
+  this.nameplantilla=item.Name
+  this.umbral=item.Umbral
+  this.idplantillaname=item.id
+
+ 
+console.log(this.nameplantilla)
+console.log(this.umbral)
+console.log(this.idplantillaname)
+
+
+
+  }
+
+
+
+}
+
 
 

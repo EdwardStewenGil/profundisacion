@@ -96,12 +96,20 @@ export class AuthService {
   read_Plantilla(){
     return this.db.collection('Plantillas').snapshotChanges();
   }
+  read_Plantilla1(nameplantilla){
+    return this.db.collection('Plantillas' , ref  =>  ref . where ( 'Name' , '==' , nameplantilla )).snapshotChanges()
+  }
+  
   update_Plantilla(recordID, record){
     this.db.doc('Plantillas/' + recordID).update(record);
   }
   delete_Plantilla(record_id){
     this.db.doc('Plantillas/' + record_id).delete();
   }
+
+
+
+
 
 
   read_Criterios_ID(id){

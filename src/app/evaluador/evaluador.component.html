@@ -16,8 +16,13 @@
 
 
  </div>
-    <div class="col-sm-10">
 
+    <div class="col-sm-10">
+<div  *ngIf="mostrar2">
+      <button type="button" class="btn btn-warning"   (click)="mostrar1=true"  (click)="mostrar2=false" (click)="mostrar3=false"  >crear evaluacion</button>
+    </div>
+      
+    <div   *ngIf="mostrar1">
 
 
 
@@ -33,9 +38,7 @@
         <input type="text" class="form-control" [(ngModel)]="lista" placeholder="Lista de Chequeo">
       </div>
 
-      <div class="col-md-8">
-        <input type="text" class="form-control" [(ngModel)]="autor" placeholder="Autor">
-      </div>
+ 
 
       <div class="col-md-8">
         <input type="date" class="form-control" [(ngModel)]="fecha" placeholder="Fecha">
@@ -51,26 +54,127 @@
       </div>
 
       <div class="col-md-8">
-        <input type="text" class="form-control" [(ngModel)]="id_plantilla" placeholder="ID Plantilla">
+        <button type="button" class=" btn-primary" data-toggle="modal" data-target="#myModal5" >
+          Buscar Plantilla  </button>
       </div>
 
-      <div class="col-md-8">
-        <input type="text" class="form-control" [(ngModel)]="umbral" placeholder="Umbral">
-      </div>
+   
 
       <div class="col-md-8">
- <button type="button" class="btn btn-danger">Cancelar</button>
- <button type="button" class="btn btn-warning" (click)="CreateRecord()" [disabled]="!referencia || !lista || !autor || !fecha  || !estado  || !observacion  || !id_plantilla  || !umbral" >Siguiente</button>
+ <button type="button" class="btn btn-danger" (click)="mostrar1=false"(click)="mostrar2=true"  (click)="mostrar3=true">Cancelar</button>
+ <button type="button" class="btn btn-warning"   (click)="CreateRecord(item)"  (click)="mostrar1=false" (click)="mostrar2=true" (click)="mostrar3=true" >Siguiente</button>
+
      </div>
   </div>
 
-  <p> {{ evaluador.fecha }}  </p>
+
+  <!-- The Modal -->
+<div class="modal fade" id="myModal5">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="l1">Seleccionar Plantilla</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      
+
+      <table class="table table-striped a8 table-hover  table-condensed" >
+        <thead>
+          <tr>
+            <th>Raiz</th>
+            <th>nombre</th>
+            <th>descripcion</th>
+            <th>umbral</th>
+            <th>opciones</th>
+            
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of plantillas">
+            <td>   {{item.Raiz}}</td>
+            <td> {{item.Name}} </td>
+            <td>   {{item.Description}}</td>
+            <td> {{item.Umbral}} </td>         
+            <td>
+              
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"  (click)= "plantilla(item)"  data-dismiss="modal">
+                      Seleccionar plantilla  </button>
+                
+            
+            
+            </td>       
+          </tr>
+        </tbody>
+    </table>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
 
   </div>
 
 
-  </div>
+<div  *ngIf="mostrar3" >
 
+  <table class="table table-striped a8 table-hover  table-condensed" >
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Lista</th>
+        <th>Autor</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Accion</th>
+
+        
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item1 of evaluador">
+        <td>   {{item1.Referencia}}</td>
+        <td> {{item1.Lista}} </td>
+        <td>   {{item1.Autor}}</td>
+        <td> {{item1.Fecha}} </td>     
+        <td> {{item1.Estado}} </td>     
+        <td>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal"    (click)="mostrar1=false" (click)="mostrar2=false" (click)="mostrar3=false">
+                  Versionar  </button>
+                  <button type="button" class="btn btn-danger" data-toggle="modal"    (click)="mostrar1=false" (click)="mostrar2=true" (click)="mostrar3=true" (click)="RemoveRecord(item1)">
+                    Eliminar  </button>
+            
+        
+        
+        </td>       
+      </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+</div>
+
+</div>
 
  </div>
 
